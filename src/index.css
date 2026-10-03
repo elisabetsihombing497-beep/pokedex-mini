@@ -1,4 +1,3 @@
-/* ============ PokéDex Mini — field dex v4 ============ */
 :root {
   color-scheme: light;
   --red: #e3350d;
@@ -30,7 +29,6 @@ input, button, textarea, select { font-family: inherit; }
 :focus-visible { outline: 3px solid rgba(227, 53, 13, 0.45); outline-offset: 3px; }
 h1, h2, h3 { letter-spacing: -0.6px; color: var(--ink); }
 
-/* ============ field scene background (sky / sun / clouds / birds / grass) ============ */
 .field-scene {
   position: fixed;
   inset: 0;
@@ -65,7 +63,6 @@ h1, h2, h3 { letter-spacing: -0.6px; color: var(--ink); }
 }
 .field-grass { position: absolute; left: 50%; transform: translateX(-50%); bottom: 0; width: max(1200px, 100%); height: 92px; display: block; }
 
-/* ============ shell ============ */
 .app-container { min-height: 100vh; position: relative; isolation: isolate; padding: 1px 22px 64px; }
 .app-header { max-width: var(--page-width); margin: 0 auto 22px; padding-top: 28px; display: flex; justify-content: center; }
 .app-title-link { text-decoration: none; }
@@ -91,7 +88,6 @@ main { position: relative; }
 .home-intro p { color: #4c5566; font-size: 0.98rem; line-height: 1.6; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55); }
 .home-intro .eyebrow { display: block; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.32em; color: #2a5fae; margin-bottom: 6px; }
 
-/* ============ search (game-card style) ============ */
 .search { position: relative; margin-bottom: 30px; }
 .search-form {
   display: flex;
@@ -135,7 +131,6 @@ main { position: relative; }
 .search-button:active { transform: translateY(2px); box-shadow: 0 1px 0 #1c447e; }
 .search-error { text-align: center; color: var(--red-dark); font-weight: 600; font-size: 0.85rem; margin-top: 10px; }
 
-/* ============ toolbar ============ */
 .catalog-section { width: 100%; }
 .catalog-toolbar { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin-bottom: 12px; flex-wrap: wrap; }
 .catalog-toolbar h2 { font-size: 1.3rem; font-weight: 800; text-shadow: 0 2px 0 rgba(255, 255, 255, 0.55); }
@@ -153,7 +148,6 @@ main { position: relative; }
   box-shadow: 3px 4px 0 rgba(35, 35, 43, 0.22);
 }
 
-/* ============ chips (game-card style) ============ */
 .type-filter { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
 .filter-chip {
   border: 2px solid #23232b;
@@ -178,7 +172,6 @@ main { position: relative; }
 .filter-chip.chip-color-flying.is-active { background: #5574ad; }
 .filter-chip.chip-color-electric.is-active { background: #d9a514; }
 
-/* ============ TCG-style cards ============ */
 .pokemon-list-card { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; list-style: none; }
 .pokemon-card {
   --type: #9aa3ad;
@@ -220,7 +213,6 @@ main { position: relative; }
 @keyframes stat-grow { from { width: 0; } }
 .card-stat-value { font-size: 0.72rem; font-weight: 800; text-align: right; color: #23232b; }
 
-/* ============ skeletons & states ============ */
 .pokemon-grid { max-width: 1020px; margin: 24px auto; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 .pokemon-skeleton { height: 320px; border-radius: 18px; padding: 16px; background: #fff; border: 3px solid #f6c445; box-shadow: inset 0 0 0 2px #23232b, 6px 7px 0 rgba(35, 50, 30, 0.2); }
 .pokemon-skeleton span { display: block; height: 124px; width: 124px; margin: 0 auto; border-radius: 50%; background: linear-gradient(100deg, #f0ede6 25%, #faf8f4 45%, #f0ede6 65%); background-size: 200% 100%; animation: shimmer 1.3s linear infinite; }
@@ -245,7 +237,6 @@ main { position: relative; }
 .suggest-chip:hover { transform: translateY(-2px); background: #fff6f1; }
 .suggest-chip img { width: 34px; height: 34px; object-fit: contain; image-rendering: pixelated; }
 
-/* ============ gate intro (dawn field, uses the exact pokeball.svg) ============ */
 .gate {
   position: fixed;
   inset: 0;
@@ -302,7 +293,6 @@ main { position: relative; }
   animation: shine-sweep 5.2s ease-in-out infinite;
 }
 @keyframes shine-sweep { 0%, 70% { transform: translateX(-260%) skewX(-18deg); } 92%, 100% { transform: translateX(460%) skewX(-18deg); } }
-/* hit-area aligned with the SVG's center button (36% of the ball) */
 .gate-button {
   position: absolute;
   z-index: 4;
@@ -351,21 +341,18 @@ main { position: relative; }
 .is-opening .gate-kicker, .is-opening .gate-hint { opacity: 0; transition: opacity 0.2s; }
 @keyframes gate-out { to { opacity: 0; visibility: hidden; } }
 
-/* boot scan after gate */
 .boot-scan { position: fixed; inset: 0; z-index: 900; overflow: hidden; background: rgba(255, 255, 255, 0.55); display: grid; place-items: center; animation: boot-out 0.35s ease 0.65s forwards; }
 .boot-scan::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0 46%, rgba(74, 222, 128, 0.5) 49% 51%, transparent 54% 100%); animation: boot-sweep 0.95s ease-in-out; }
 .boot-text { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.28em; color: var(--ink); }
 @keyframes boot-sweep { from { transform: translateY(-100%); } to { transform: translateY(100%); } }
 @keyframes boot-out { to { opacity: 0; visibility: hidden; } }
 
-/* ============ detail page — open field & pack opening ============ */
 .detail-page { max-width: 760px; margin: 0 auto; padding: 12px 0 30px; display: flex; flex-direction: column; gap: 18px; }
 .detail-back-link { align-self: flex-start; text-decoration: none; color: var(--ink); background: #fff; border: 2px solid #23232b; border-radius: 999px; padding: 9px 20px; font-weight: 800; font-size: 0.85rem; box-shadow: 3px 4px 0 rgba(35, 35, 43, 0.28); transition: transform 0.15s var(--spring), box-shadow 0.15s ease; }
 .detail-back-link:hover { transform: translateY(-2px); box-shadow: 4px 6px 0 rgba(35, 35, 43, 0.3); }
 .detail-back-link:active { transform: translateY(2px); box-shadow: 1px 2px 0 rgba(35, 35, 43, 0.3); }
 .detail-hero { text-align: center; padding-top: 6px; position: relative; }
 
-/* pack-opening entrance */
 .pack-in { animation: pack-throw 0.72s cubic-bezier(0.25, 0.9, 0.3, 1.04) both; }
 .pack-in-2 { animation-delay: 0.16s; }
 @keyframes pack-throw {
@@ -431,7 +418,6 @@ main { position: relative; }
 .moves-list li::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: #ffd23f; border: 1.5px solid #23232b; }
 .moves-list li:hover { transform: translateX(4px); color: #2a5fae; }
 
-/* detail loading — scan (same SVG ball) */
 .scan-stage { max-width: 600px; margin: 70px auto; display: grid; justify-items: center; gap: 22px; }
 .scan-ball { position: relative; width: 180px; height: 180px; border-radius: 50%; overflow: hidden; animation: gate-float 3s ease-in-out infinite; filter: drop-shadow(0 16px 26px rgba(60, 50, 30, 0.25)); }
 .scan-ball img { width: 100%; height: 100%; }
@@ -444,14 +430,12 @@ main { position: relative; }
 .detail-error { margin-top: 45px; }
 .not-found-art { display: grid; place-items: center; width: 80px; height: 80px; margin: 0 auto 16px; border-radius: 50%; color: var(--red); background: #fff1ec; font-size: 2.4rem; font-weight: 900; animation: hit-shake 1.6s ease infinite; }
 
-/* ============ type palettes ============ */
 .type-grass { --type: #4b9c62; } .type-fire { --type: #da6c36; } .type-water { --type: #3989be; } .type-bug { --type: #718f39; } .type-normal { --type: #86765f; } .type-poison { --type: #8754a2; } .type-flying { --type: #5574ad; } .type-electric { --type: #d9a514; } .type-ground { --type: #a1887f; } .type-fairy { --type: #d76a9c; } .type-fighting { --type: #c63a36; } .type-psychic { --type: #cc4477; } .type-rock { --type: #8d6e63; } .type-ghost { --type: #7e57c2; } .type-dragon { --type: #5c6bc0; } .type-ice { --type: #52a9bc; } .type-steel { --type: #718896; } .type-dark { --type: #5b5368; }
 
 .type-color-grass { background-color: #4b9c62; } .type-color-fire { background-color: #da6c36; } .type-color-water { background-color: #3989be; } .type-color-bug { background-color: #718f39; } .type-color-normal { background-color: #86765f; } .type-color-poison { background-color: #8754a2; } .type-color-flying { background-color: #5574ad; } .type-color-electric { background-color: #d9a514; } .type-color-ground { background-color: #a1887f; } .type-color-fairy { background-color: #d76a9c; } .type-color-fighting { background-color: #c63a36; } .type-color-psychic { background-color: #cc4477; } .type-color-rock { background-color: #8d6e63; } .type-color-ghost { background-color: #7e57c2; } .type-color-dragon { background-color: #5c6bc0; } .type-color-ice { background-color: #52a9bc; } .type-color-steel { background-color: #718896; } .type-color-dark { background-color: #5b5368; }
 
 .bg-tint-grass { background-color: #e7f6e9; } .bg-tint-fire { background-color: #ffeede; } .bg-tint-water { background-color: #e4f2ff; } .bg-tint-bug { background-color: #f1f9e0; } .bg-tint-normal { background-color: #f1ede6; } .bg-tint-poison { background-color: #f4e9fb; } .bg-tint-flying { background-color: #e9f1fd; } .bg-tint-electric { background-color: #fdf6cf; } .bg-tint-ground { background-color: #f3e9dd; } .bg-tint-fairy { background-color: #fdeaf3; } .bg-tint-fighting { background-color: #fde7e7; } .bg-tint-psychic { background-color: #fde9f1; } .bg-tint-rock { background-color: #f0e8e0; } .bg-tint-ghost { background-color: #ede8fa; } .bg-tint-dragon { background-color: #e6ebfc; } .bg-tint-ice { background-color: #e3f6f9; } .bg-tint-steel { background-color: #eaeef1; } .bg-tint-dark { background-color: #efe9f2; }
 
-/* ============ responsive ============ */
 @media (max-width: 1000px) {
   .pokemon-list-card, .pokemon-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 }
@@ -476,7 +460,6 @@ main { position: relative; }
   .card-type-badge { font-size: 0.6rem; padding: 3px 9px; }
 }
 
-/* ============ reduced motion ============ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     scroll-behavior: auto !important;

@@ -46,7 +46,6 @@ function noise(ac, { start = 0, dur = 0.3, gain = 0.06, filter = "bandpass", fro
   src.start(t0);
 }
 
-/* deep mechanical press — gate center button */
 export function playPress() {
   const ac = audio();
   if (!ac) return;
@@ -54,7 +53,6 @@ export function playPress() {
   noise(ac, { dur: 0.05, gain: 0.03, filter: "highpass", from: 3000, to: 1500 });
 }
 
-/* the "wah" moment — rising whoosh + sparkle arpeggio as the ball bursts open */
 export function playGateOpen() {
   const ac = audio();
   if (!ac) return;
@@ -65,14 +63,12 @@ export function playGateOpen() {
   });
 }
 
-/* tiny crisp tick — chips, tabs, sort, clear */
 export function playTick() {
   const ac = audio();
   if (!ac) return;
   tone(ac, { type: "sine", from: 1400, to: 1100, dur: 0.045, gain: 0.035 });
 }
 
-/* friendly pop — search, cards, confirmations */
 export function playPop() {
   const ac = audio();
   if (!ac) return;
@@ -80,21 +76,18 @@ export function playPop() {
   tone(ac, { from: 1800, to: 2200, dur: 0.05, gain: 0.02, start: 0.02 });
 }
 
-/* soft downward blip — going back */
 export function playBack() {
   const ac = audio();
   if (!ac) return;
   tone(ac, { from: 760, to: 360, dur: 0.1, gain: 0.045 });
 }
 
-/* little buzzer — invalid search */
 export function playError() {
   const ac = audio();
   if (!ac) return;
   tone(ac, { type: "square", from: 220, to: 160, dur: 0.14, gain: 0.035 });
 }
 
-/* "pyu!" — sprite easter egg */
 export function playSpark() {
   const ac = audio();
   if (!ac) return;
